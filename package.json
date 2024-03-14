@@ -4,7 +4,7 @@
     "description": "a Bruno API Test cli demo repository by bruno",
     "main": "index.js",
     "scripts": {
-      "test": "bru run --env demo"
+      "test": "bru run --env Test"
     },
     "keywords": [
       "bruno",
