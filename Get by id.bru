@@ -1,0 +1,21 @@
+meta {
+  name: Get by id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{URL}}/objects/{{id}}
+  body: none
+  auth: none
+}
+
+tests {
+  let id = bru.getVar("id");
+  const data = res.getBody();
+  
+  test("id is" + id, function() {
+    console.log(id)
+      expect(data.id).to.eql(id);
+    });
+}

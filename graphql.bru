@@ -1,0 +1,31 @@
+meta {
+  name: graphql
+  type: graphql
+  seq: 7
+}
+
+post {
+  url: https://spacex-production.up.railway.app/
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query ExampleQuery {
+    company {
+      ceo
+    }
+    roadster {
+      apoapsis_au
+    }
+  }
+  
+}
+
+tests {
+  const data = res.getBody();
+  
+  test("ceo is Elon Musk", function() {
+      expect(data.data.company.ceo).to.eql("Elon Musk");
+    });
+}
