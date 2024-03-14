@@ -1,19 +1,16 @@
-{
-    "name": "Bruno API test starter",
-    "version": "1.0.0",
-    "description": "a Bruno API Test cli demo repository by bruno",
-    "main": "index.js",
-    "scripts": {
-      "test": "bru run --env demo"
-    },
-    "keywords": [
-      "bruno",
-      "bruno-cli",
-      "api-test"
-    ],
-    "author": "naodeng-tw",
-    "license": "Apache-2.0",
-    "dependencies": {
-      "@usebruno/cli": "^0.14.0"
-    }
-  }
+name: bruno cli CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run_bruno_api_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: npm install
+    - name: run tests
+      run: npm run test
